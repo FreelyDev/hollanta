@@ -1,0 +1,285 @@
+[{
+        "inputs": [{ "internalType": "uint64", "name": "endAt", "type": "uint64" }],
+        "name": "AlreadyFinished",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "amount", "type": "uint256" },
+            { "internalType": "uint256", "name": "expected", "type": "uint256" }
+        ],
+        "name": "InsufficientIcoTokens",
+        "type": "error"
+    },
+    { "inputs": [], "name": "InvalidAmount", "type": "error" },
+    { "inputs": [], "name": "InvalidSignature", "type": "error" },
+    { "inputs": [], "name": "InvalidSignatureLength", "type": "error" },
+    { "inputs": [], "name": "InvalidZeroAddress", "type": "error" },
+    { "inputs": [], "name": "NothingContributed", "type": "error" },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "value", "type": "uint256" },
+            { "internalType": "uint256", "name": "limit", "type": "uint256" }
+        ],
+        "name": "OverHardcap",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint16", "name": "value", "type": "uint16" },
+            { "internalType": "uint16", "name": "limit", "type": "uint16" }
+        ],
+        "name": "OverLimitation",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "value", "type": "uint256" },
+            { "internalType": "uint256", "name": "limit", "type": "uint256" }
+        ],
+        "name": "OverMaxContributes",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "value", "type": "uint256" },
+            { "internalType": "uint256", "name": "limit", "type": "uint256" }
+        ],
+        "name": "UnderMinContributes",
+        "type": "error"
+    },
+    { "inputs": [], "name": "WrongUsage", "type": "error" },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" },
+            { "indexed": false, "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+        ],
+        "name": "FundTokenClaimed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" }],
+        "name": "IcoCancelled",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "uint256", "name": "redundantAmount", "type": "uint256" }
+        ],
+        "name": "IcoCompleted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "IcoTokenDeposited",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+            { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "address", "name": "account", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "UserClaimed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "address", "name": "account", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "UserContributed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": false, "internalType": "bytes16", "name": "icoId", "type": "bytes16" },
+            { "indexed": false, "internalType": "address", "name": "account", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "UserRefunded",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "icoToken_", "type": "address" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "cancelIco",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "icoToken_", "type": "address" },
+            { "internalType": "uint256", "name": "price_", "type": "uint256" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "claim",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "fundToken_", "type": "address" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "claimFundToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "icoToken_", "type": "address" },
+            { "internalType": "uint256", "name": "price_", "type": "uint256" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "completeIco",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "fundToken_", "type": "address" },
+            { "internalType": "bytes", "name": "amountArgs_", "type": "bytes" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "contribute",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "icoToken_", "type": "address" },
+            { "internalType": "uint256", "name": "amount_", "type": "uint256" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "depositIcoToken",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "signer_", "type": "address" },
+            { "internalType": "address payable", "name": "treasuryWallet_", "type": "address" },
+            { "internalType": "uint16", "name": "treasuryFee_", "type": "uint16" }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "token_", "type": "address" },
+            { "internalType": "uint256", "name": "amount_", "type": "uint256" }
+        ],
+        "name": "recoverTokens",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "bytes16", "name": "icoId_", "type": "bytes16" },
+            { "internalType": "address", "name": "fundToken_", "type": "address" },
+            { "internalType": "bytes", "name": "signature_", "type": "bytes" }
+        ],
+        "name": "refund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+        "inputs": [],
+        "name": "signer",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "treasuryFee",
+        "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "treasuryWallet",
+        "outputs": [{ "internalType": "address payable", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "signer_", "type": "address" }],
+        "name": "updateSigner",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint16", "name": "treasuryFee_", "type": "uint16" }],
+        "name": "updateTreasuryFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address payable", "name": "treasuryWallet_", "type": "address" }],
+        "name": "updateTreasuryWallet",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    { "stateMutability": "payable", "type": "receive" }
+]

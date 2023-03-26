@@ -1,0 +1,111 @@
+[
+  {
+    "title" : "NEXT-GEN LAUNCHPAD",
+    "description" : "Early access to vetted projects that drive the future of DeFi",
+    "button" : {
+    "submit" : "SUBMIT A PROJECT",
+    "telegram" : "JOIN TELEGRAM"
+    },
+    "links" : {
+    "view" : "VIEW CHART",
+    "swap" : "SWAP"
+    },
+    "state" : {
+    "price" : "PRICE",
+    "marketap" : "MARKETCAP",
+    "tokens" : "TOKENS BURNED",
+    "funds" : "TOTAL FUNDS RAISED"
+    }
+  },
+  {
+    "title" : "下时代浮华平台",
+    "description" : "提早推动经过审查的DeFi未来的项目",
+    "button" : {
+    "submit" : "提交项目",
+    "telegram" : "加入电报群"
+    },
+    "links" : {
+    "view" : "观看视图",
+    "swap" : "换夜叉代币"
+    },
+    "state" : {
+    "price" : "价格",
+    "marketap" : "市值",
+    "tokens" : "代币烧毁",
+    "funds" : "募集资金总额"
+    }
+  },
+  {
+    "title" : "PLATAFORMA DE LANZAMIENTO DE NUEVA GENERACIÓN",
+    "description" : "Acceso anticipado a proyectos examinados que impulsan el futuro de DeFi",
+    "button" : {
+    "submit" : "Enviar un proyecto",
+    "telegram" : "Únase a Telegram"
+    },
+    "links" : {
+    "view" : "VER GRÁFICO",
+    "swap" : "COMPRAR YASHA"
+    },
+    "state" : {
+    "price" : "PRECIO",
+    "marketap" : "CAP DE MERCADO",
+    "tokens" : "QUEMADAS",
+    "funds" : "FONDOS RECAUDADOS"
+    }
+  },
+  {
+    "title" : "NEXT-GEN LAUNCHPAD",
+    "description" : "Accès anticipé à des projets approuvés qui guident l'avenir de DeFi",
+    "button" : {
+    "submit" : "Déposer un Projet",
+    "telegram" : "Rejoindre Telegram"
+    },
+    "links" : {
+    "view" : "AFFICHER LE GRAPHIQUE",
+    "swap" : "AFFICHER LE GRAPHIQUE"
+    },
+    "state" : {
+    "price" : "LE PRIX",
+    "marketap" : "CAPITALISATION BOURSIÈRE",
+    "tokens" : "JETONS BRÛLÉS",
+    "funds" : "TOTAL DES FONDS COLLECTÉS"
+    }
+  },
+  {
+    "title" : "नेक्स्ट-जेन लॉन्चपैड",
+    "description" : "डेफी के भविष्य को संचालित करने वाली जांच की गई परियोजनाओं तक शीघ्र पहुंच",
+    "button" : {
+    "submit" : "प्रोजेक्ट सबमिट करें",
+    "telegram" : "टेलीग्राम से जुड़ें"
+    },
+    "links" : {
+    "view" : "चार्ट देखें",
+    "swap" : "चार्ट देखें"
+    },
+    "state" : {
+    "price" : "कीमत",
+    "marketap" : "मार्किट कैप",
+    "tokens" : "टोकन बर्न",
+    "funds" : "कुल जुटाई गई धनराशि"
+    }
+  },
+  {
+    "title" : "次世代ランチパッド",
+    "description" : "吟味された未来のあるプロジェクトに早期アクセスする。",
+    "button" : {
+    "submit" : "プロジェクトを提出する",
+    "telegram" : "Telegramに参加する"
+    },
+    "links" : {
+    "view" : "チャートを見る",
+    "swap" : "YASHAにスワップ"
+    },
+    "state" : {
+    "price" : "値段",
+    "marketap" : "時価総額",
+    "tokens" : "バーン",
+    "funds" : "総調達資金"
+    }
+  }
+
+]

@@ -15,58 +15,70 @@ export const useStyles = makeStyles(theme => ({
       },
     },
   },
-
-  content: {
+  container: {
     width: '100%',
-    height : '100%',
     minHeight : '100vh',
     margin : 0,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '10rem',
     background : '#000',
-    backgroundSize : 'cover',
-    backgroundRepeat : 'norepeat',
-    
+    backgroundSize : '100%',
+    backgroundRepeat : 'no-repeat',
+  },
+
+  content: {
+    width: '100%',
+    height : '100%',
+    margin : 0,
+    display: 'flex',
+    maxWidth : 780,
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingTop : '50vh',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
       paddingLeft : 12,
       paddingRight : 12,
       paddingTop: '7rem',
     },
-    '& .main_img': {
-      width : '309px',
-      height : 'auto',
+    '& p': {
+      color : '#fff',
+      fontSize: 16,
+    },
+    '& .avartar': {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      marginBottom : 30,
+      '& img': {
+        width : 45,
+        height : 45,
+        marginRight : 10,
+      },
+      '& p': {
+        color : '#ffffff63',
+        fontSize: 16,
+      },
     },
     '& h1': {
       color : '#fff',
-      fontSize: 68,
-      fontStyle : 'italic',
-      fontWeight : 700,
-      letterSpacing : 6,
-      marginTop : 30,
+      fontSize: 30,
+      fontWeight : 500,
       marginBottom : 10,
       lineHeight : '1.4',
-      maxWidth: 1320,
-      textAlign : 'center',
+      textAlign : 'left',
+      width: '100%',
       [theme.breakpoints.down('xs')]: {
         fontSize: 48,
       },
-    },
-    '& p': {
-      color : '#fff',
-      fontSize: 20,
-      letterSpacing : '0.095rem',
-      textAlign : 'center',
     },
     
     '& .btns':{
       marginTop : 40,
       marginBottom : 40,
       display: 'flex',
-      // alignItems: 'center',
       gridArea : 'auto',
       gap : 20,
       [theme.breakpoints.down('xs')]: {
@@ -80,49 +92,61 @@ export const useStyles = makeStyles(theme => ({
         },
         
         '& button': {
-          width : '100%',
+          width : 450,
+          textTransform : 'capitalize',
         },
       },
     }
 
   },
-  external_links: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom : 70,
-    [theme.breakpoints.down('xs')]: {
-    },
-    '& a': {
-      color : '#636569',
-      textDecoration: 'underline',
-      transition :'all 0.3s ease',
-      fontSize : 15,
-      paddingRight : 20,
-      paddingLeft : 20,
-      [theme.breakpoints.down('xs')]: {
-        padding : 10,
-        paddingRight : 10,
-      },
-      '&:hover': {
-        color : '#fde995',
-      },
-      '& img': {
-        marginRight : 7,
-        [theme.breakpoints.down('xs')]: {
-        },
-      },
-    },
-    '& .r-line': {
-      borderRight : '1px solid #ffffff0a',
-    },
-  },
+
   state: {
     display: 'flex',
-    alignItems: 'center',
-    
+    flexDirection: 'column',
+    width: '100%',
     marginBottom : 20,
     [theme.breakpoints.down('xs')]: {
       
+    },
+    '& .row': {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      '& p': {
+        color : '#ffffffa3',
+        fontSize: 14,
+        marginBottom : 5,
+      },
+      '& h5': {
+        color : '#ffffff',
+        fontSize: 16,
+        marginBottom : 5,
+        fontWeight: 600,
+      },
+    },
+    '& .progress-div':{
+      width: '100%',
+      height : 4,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom : 5,
+      gridArea : 'auto',
+      gap : 10,
+      '& .progress':{
+        height : 4,
+        borderRadius : 5,
+      },
+      '& .progress1':{
+        background : '#FF1B1B',
+      },
+      '& .progress2':{
+        background : '#F0C846',
+      },
+      '& .progress3':{
+        background : 'rgba(255, 255, 255, 0.3)',
+      },
     },
     '& ul': {
       padding : 0,

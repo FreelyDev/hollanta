@@ -13,8 +13,6 @@ const Layout = ({ children }) => {
     <>
       
       <div className={`${classes.layout}`}>
-        <div className="gradient-circle"></div>
-        <div className="gradient-circle gradient-circle--primary"></div>
         <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <div className={classes.layoutContent}>
           <div className={`${classes.mainContent}`}>

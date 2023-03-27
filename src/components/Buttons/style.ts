@@ -6,16 +6,13 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     textDecoration: 'none',
-    userSelect: 'none',
-    backgroundColor: 'transparent',
-    lineHeight: '1.5',
-    border: '2px solid transparent',
-    padding: '.75rem 1.5rem',
-    borderRadius: 50,
+    padding: '10px 20px',
+    borderRadius: 5,
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    fontSize: 16,
-    fontEeight: 600,
+    fontSize: 14,
+    fontWeight: 'normal',
+    lineHeight : 1,
     
   },
   icon: {
@@ -32,17 +29,16 @@ const useStyles = makeStyles(theme => ({
     },
   },
   primary: {
-    color: '#fff',
-    background: 'linear-gradient(to right, #0f0f24,#0f0f24) padding-box, linear-gradient(180deg,#ef655dbf 0,#8149bf2e 50%) border-box',
+    color: '#000',
+    background: '#F0C846',
     '&:hover': {
-      borderColor: '#ef655dbf',
+      background: '#F0C846aa',
     },
   },
   secondary: {
-    background: 'linear-gradient(#0f0f24,#0f0f24) padding-box,linear-gradient(180deg,#fde995 0,rgba(129,73,191,.18) 100%) border-box',
-    color: '#fde995 ',
+    background: '#F0C846',
     '&:hover': {
-      borderColor: '#fde995',
+      background: '#F0C846aa',
     },
   },
   success: {

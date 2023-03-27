@@ -16,7 +16,6 @@ import DateTimePickerField from 'components/DateTimePicker';
 import UploadFile from 'components/Forms/UploadFile';
 import { apiGetICOList, apiPostCreateNewICO, apiPostIsAdmin, ICOData } from 'utils/api';
 import { useWeb3React } from '@web3-react/core';
-import multiText from './lang.json';
 import { arrayify, hashMessage } from 'ethers/lib/utils';
 import TierInputCard from 'components/Cards/TierInputCard/TierInputCard';
 
@@ -32,17 +31,6 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const { setLoading } = useContext(LoadingCtx);
 
-  // -------------------------
-  const { langType } = useContext(MultiLanguageContext)
-  const [uiText, setUiText] = useState(multiText[0]);
-  useEffect(() => {
-    if (langType === 'en') setUiText(multiText[0]);
-    if (langType === 'cn') setUiText(multiText[1]);
-    if (langType === 'es') setUiText(multiText[2]);
-    if (langType === 'fr') setUiText(multiText[3]);
-    if (langType === 'hi') setUiText(multiText[4]);
-    if (langType === 'ja') setUiText(multiText[5]);
-  }, [langType]);
 
   const [loginStatus, setLoginStatus] = useState(false);
   const { connector, library, chainId, account, active } = useWeb3React();
@@ -243,65 +231,39 @@ const Home = () => {
   return (
     <>
       <div className={classes.root}>
-        <div className={`${classes.content}`} style={{ backgroundImage: `url("/assets/hero-bg.svg")` }} >
-          <img src="/assets/imgs/home_banner.svg" alt="" className='main_img' data-aos="fade-up" />
-          <h1 data-aos="fade-up">{uiText.title}</h1>
-          <p data-aos="fade-up">{uiText.description}</p>
-          <div className="btns">
-            {isApiPostAdmin &&
-              <FilledButton label={uiText.button.submit} color='secondary' icon={<><img src="/assets/icons/icon_submit.svg" alt="" /></>} iconPosition='start' handleClick={onOpenSubmitModal} />
-            }
-            <a href="http://t.me/yasha_dao_official" target={"_blank"} rel="noreferrer">
-              <FilledButton label={uiText.button.telegram} color='grey' icon={<><img src="/assets/icons/icon_telegram.svg" alt="" /></>} iconPosition='start' />
-            </a>
-          </div>
+        <div className={`${classes.container}`} style={{ backgroundImage: `url("/assets/imgs/home_01.png")` }} >
+          <div className={classes.content}>
+            <h1 data-aos="fade-up">White Girl Can Dance</h1>
+            <div className="avartar">
+              <img src="/assets/avatars/avatar_01.png" alt="" />
+              <p>James Doe</p>
+            </div>
+            <div className={classes.state}>
+              <div className="row">
+                <p>Budget</p>
+                <p>Target</p>
+              </div>
+              <div className="row">
+                <h5>ETH 420,50</h5>
+                <h5>50M</h5>
+              </div>
+              <div className="progress-div">
+                <div className="progress progress1" style={{width : `${10}%`}}></div>
+                <div className="progress progress2" style={{width : `${70}%`}}></div>
+                <div className="progress progress3" style={{width : `${20}%`}}></div>
+              </div>
+              <div className="row">
+                <p>You donated ETH 30</p>
+                <p>12 day left</p>
+              </div>
+            </div>
+            <p data-aos="fade-up">After encountering her high school crush by chance, Kim Winters has to put her college studies down for a chance to dance for love... Read More</p>
 
-          <div className={classes.external_links} data-aos="fade-up">
-            <a href="https://www.dextools.io/app/ether/pair-explorer/0x3b35a99780fc2c85943e67a901f10bd7317fec75" target={'_blank'} rel='noreferrer' className='r-line'>{uiText.links.view}</a>
-
-            <a href="https://app.uniswap.org/#/swap?exactField=input&exactAmount=1&inputCurrency=eth&outputCurrency=0xd75f1f81b69bdd4df8efbb70e9c6f4609009d753&chain=mainnet" target={'_blank'} rel='noreferrer' className='r-line'>{uiText.links.swap}</a>
-
-            <a href="/" target={'_blank'} rel='noreferrer'>
-              <img src="/assets/icons/icon_copy.svg" alt="" />
-              0xd75..9d753
-            </a>
-          </div>
-
-          <div className={classes.state}>
-            <ul>
-              <li className='r-line'>
-                <img src="/assets/icons/icon_dollar.svg" alt="" />
-                <span>
-                  <h4>$0.0000000</h4>
-                  <p>{uiText.state.price}</p>
-                </span>
-              </li>
-
-              <li className='r-line'>
-                <img src="/assets/icons/icon_money.svg" alt="" />
-                <span>
-                  <h4>$0</h4>
-                  <p>{uiText.state.marketap}</p>
-                </span>
-              </li>
-
-              <li className='r-line'>
-                <img src="/assets/icons/icon_fire.svg" alt="" />
-                <span>
-                  <h4>7.52B</h4>
-                  <p>{uiText.state.tokens}</p>
-                </span>
-              </li>
-
-              <li>
-                <img src="/assets/icons/icon_coin.svg" alt="" />
-                <span>
-                  <h4>$1.26M</h4>
-                  <p>{uiText.state.funds}</p>
-                </span>
-              </li>
-            </ul>
-          </div>
+            <div className="btns">
+              <a href="http://t.me/yasha_dao_official" target={"_blank"} rel="noreferrer">
+              <FilledButton label={'Back this project'} handleClick={onOpenSubmitModal} />
+              </a>
+            </div>
 
         </div>
         <Tab setTabId={setTabId} tabId={tabId} children={
@@ -311,6 +273,8 @@ const Home = () => {
             {tabId === 2 && <Tiers />}
           </>}
         />
+          </div>
+
         <Testmonials />
       </div>
       <Modal

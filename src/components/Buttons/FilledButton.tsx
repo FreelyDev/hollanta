@@ -4,12 +4,12 @@ import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import useStyles from './style';
 
-const FilledButton = ({ className, label, icon, size, iconPosition, handleClick, color, disabled }) => {
+const FilledButton = ({ className, label, icon, size, iconPosition, handleClick, color, disabled, outline }) => {
   const classes = useStyles();
 
   return (
     <Button
-      className={clsx(classes.root, className, classes[color], disabled ? classes.disabled : '')}
+      className={clsx(classes.root, className, classes[color], disabled ? classes.disabled : '', outline ? classes.outline : '')}
       variant="contained"
       size={size}
       onClick={handleClick}
@@ -33,6 +33,7 @@ FilledButton.propTypes = {
   handleClick: PropTypes.func,
   color: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'grey', 'smart']),
   disabled: PropTypes.bool,
+  outline: PropTypes.bool,
 };
 
 FilledButton.defaultProps = {
@@ -42,6 +43,7 @@ FilledButton.defaultProps = {
   handleClick: () => {},
   color: 'primary',
   disabled: false,
+  outline: false,
 };
 
 export default FilledButton;

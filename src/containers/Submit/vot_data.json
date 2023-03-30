@@ -1,0 +1,51 @@
+  {
+    "dream_cast_behind_list" : [
+      {"avatarUrl" : "/assets/avatars/avatar_02.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_03.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_04.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_05.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_06.png"}
+    ],
+    "co_admin_list" : [
+      {"avatarUrl" : "/assets/avatars/avatar_07.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_08.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_09.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_10.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_11.png"}
+    ],
+    "similar_to" : [
+      {"imgUrl" : "/assets/imgs/vot_01.png"},
+      {"imgUrl" : "/assets/imgs/vot_02.png"},
+      {"imgUrl" : "/assets/imgs/vot_03.png"}
+    ],
+    "theme" : "Difficult doesn’t mean it’s impossible it just means you gotta work harder",
+    "vision" : {
+      "text":"To show everyone that with a good heart to not always go by past intuitions but to trust your true gut feeling.",
+      "video_list":[
+        {"videoUrl" : "/assets/home page lcfc.mp4"},
+        {"videoUrl" : "/assets/home page lcfc.mp4"},
+        {"videoUrl" : "/assets/home page lcfc.mp4"}
+      ]
+    },
+    "characters":{
+      "sub" : "Kim Winters",
+      "content" : "Kim is a shy college student who has lost her confidence. She blogs about popular novels and comics. In real life, she has a small social circle. She has poor fashion sense, but she tidies up her look and clothes for the big party after acquiring new skills in hip-hop breakdancing."
+    },
+    "dream_cast" : [
+      {"avatarUrl" : "/assets/avatars/avatar_02.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_12.png"},
+      {"avatarUrl" : "/assets/avatars/avatar_13.png"}
+    ],
+    "locations" : [
+      {"imgUrl" : "/assets/imgs/location_01.png"},
+      {"imgUrl" : "/assets/imgs/location_01.png"},
+      {"imgUrl" : "/assets/imgs/location_01.png"}
+    ],
+    "wardrobe":[
+      {"imgUrl" : "/assets/imgs/wadrobe.png"},
+      {"imgUrl" : "/assets/imgs/wadrobe.png"},
+      {"imgUrl" : "/assets/imgs/wadrobe.png"}
+    ],
+    "media": ""
+  }
+  

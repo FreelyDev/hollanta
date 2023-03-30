@@ -13,6 +13,7 @@ interface FileInputProps {
   defaultAsset?: string;
   defaultAssetType?: string;
   onChange?: Function;
+  onRemove?: any;
   accept?: 'Image' | 'Video' | 'Audio' | 'All';
 }
 
@@ -24,7 +25,7 @@ const useStyles = makeStyles<Theme, PT>(theme => ({
   root: {},
 
   dropzone: {
-    border: '1px solid #222',
+    border: '1px solid #ffffff11',
     height: props => (props.fileAssetType === 'Video' ? 'auto' : 140),
     width: '100%',
     background: '#ffffffff00',
@@ -39,6 +40,9 @@ const useStyles = makeStyles<Theme, PT>(theme => ({
     },
     '&:hover': {
       '& $fileButton': {
+        opacity: 1,
+      },
+      '& .closeBtn': {
         opacity: 1,
       },
     },
@@ -57,7 +61,20 @@ const useStyles = makeStyles<Theme, PT>(theme => ({
         textAlign: 'left',
       },
     },
-    
+    '& .closeBtn': {
+      position: 'absolute',
+      zIndex: 2,
+      transition: 'all 0.3s ease',
+      opacity: 0,
+      top : 10,
+      right : 10,
+      cursor: 'pointer',
+      color: '#fff',
+      fontSize : 20,
+      '&:hover': {
+        color: '#555',
+      },
+    },
   },
   icon: {
     color: '#fff',
@@ -90,15 +107,19 @@ const useStyles = makeStyles<Theme, PT>(theme => ({
   },
   fileButton: {
     backgroundColor: '#F7F9FA00',
-    padding: '12px 21px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    borderRadius: 10,
+    borderRadius: 48,
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
     marginBottom: 10,
+    width : 48,
+    height : 48,
+    border : '2px dashed #aaa',
     opacity: 0.3,
+    color : '#aaa',
     '&:active': {
       transform: 'scale(0.9)',
     },
@@ -132,6 +153,7 @@ const UploadFile = forwardRef<Ref<any>, FileInputProps>(
       dispalyAsset,
       defaultAsset,
       defaultAssetType,
+      onRemove,
       onChange,
     },
     ref,
@@ -194,19 +216,29 @@ const UploadFile = forwardRef<Ref<any>, FileInputProps>(
       e.target.files.length > 0 && setFileAsset(URL.createObjectURL(e.target.files[0]));
       e.target.files.length > 0 && setFileAssetType(getAssetType(e.target.files[0].name));
     };
-    
+    const onDelete = () => {
+      onRemove();
+      setFileAsset(undefined);
+    };
 
     return (
       <div className={`${classes.dropzone} dropzone`}>
         <div className={classes.fileOverlay}>
           <label className={clsx(classes.fileButton)}>
-            <CloudUploadIcon className={classes.icon} />
-            <input className={classes.input} type="file" accept={getAcceptType(accept)} onChange={onChangeFile} />
+            <i className="fas fa-plus"></i>
+            {/* <CloudUploadIcon className={classes.icon} /> */}
+            <input className={classes.input} type="file" accept={getAcceptType(accept)}  onClick={(event:any)=> { 
+               event.target.value = null
+          }}onChange={onChangeFile} />
           </label>
 
           {/* { !fileAsset && <h4>{info}</h4>}
           { !fileAsset && <h5>PNG, JPG or GIF Max 20MB</h5>} */}
         </div>
+        {info && fileAsset && 
+            <div className="closeBtn" onClick={onDelete}>
+              <i className="fas fa-times"></i>
+            </div>}
         {fileAsset && dispalyAsset && fileAssetType === 'Image' && (
           <img className={classes.img} src={fileAsset} alt="" />
         )}

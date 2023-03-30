@@ -7,12 +7,13 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     textDecoration: 'none',
     padding: '10px 20px',
-    borderRadius: 5,
+    borderRadius: 10,
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     fontSize: 14,
     fontWeight: 'normal',
     lineHeight : 1,
+    maxHeight : 42,
     
   },
   icon: {
@@ -21,11 +22,11 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     '& svg': {
-      fontSize: 17,
+      fontSize: 14,
     },
     '& img': {
-      width: 25,
-      height: 25,
+      width: 20,
+      height: 20,
     },
   },
   primary: {
@@ -56,19 +57,18 @@ const useStyles = makeStyles(theme => ({
     },
   },
   grey: {
-    background: 'linear-gradient(#0f0f24,#0f0f24) padding-box,linear-gradient(180deg,#fff 0,rgba(129,73,191,.18) 100%) border-box',
-    color: '#fff',
+    background: '#181818',
+    color: '#ddd',
     '&:hover': {
-      borderColor: '#fff',
+      background: '#333',
     },
   },
-  smart: {
-    background: '#fdccfd',
-    color: '#F400F5',
-    fontWeight: 400,
-    
+  outline: {
+    background: 'transparent',
+    border : '1px #F0C846 solid',
+    color: '#F0C846',
     '&:hover': {
-      background: '#fdccfd99',
+      background: '#F0C84633',
     },
   },
   disabled: {

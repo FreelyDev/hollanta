@@ -11,9 +11,7 @@
     width: 100vw;
     top: 0;
     border: none;
-    backdrop-filter: blur(5px);
     padding: 0;
-    margin-bottom: 0px;
   }
 }
 .topbar {
@@ -28,7 +26,6 @@
   @media screen and (max-width: 1440px) {
     width: 100%;
     padding: 0px 12px;
-    height: 93px;
   }
   @include mobile_potrait {
     width: 100%;
@@ -60,7 +57,6 @@
       }
       img {
         @include mobile_potrait {
-          height: 53px;
         }
       }
       h1{
@@ -80,7 +76,12 @@
     margin-left: 120px;
     margin-right: auto;
     list-style: none;
-    
+    @include pad_potrait {
+      display: none;
+    }
+    @include mobile_potrait {
+      display: none;
+    }
     li{
       margin-right: 2.2rem;
       a{
@@ -110,7 +111,6 @@
     grid-area: auto;
     gap: 20px;
     @include mobile_potrait {
-      display: none;
     }
     .iconBtn{
       display: flex;
@@ -120,6 +120,12 @@
       cursor: pointer;
       &:hover {
         opacity: 0.7;
+      }
+      @include pad_potrait {
+        display: none;
+      }
+      @include mobile_potrait {
+        display: none;
       }
     }
     .loginBtn{
@@ -136,6 +142,9 @@
       &:hover {
         background: #ffffff33;
       }
+      @include mobile_potrait {
+        display: none;
+      }
     }
 
     .connectBtn {
@@ -149,10 +158,13 @@
       cursor: pointer;
       transition: all 0.3s ease;
       font-size: 14px;
+      @include pad_potrait {
+        margin-right: 35px;
+      }
       @include mobile_potrait {
         font-size: 14px;
         margin: 0px;
-        margin-right: 10px;
+        margin-right: 35px;
       }
       &:hover {
         background: #F0C846aa;
@@ -165,29 +177,27 @@
 
   .hamburger {
     display: none;
-    width: 2.5rem;
-    height: 3rem;
     position: absolute;
-    right: 2rem;
-    top: 1rem;
-    flex-direction: column;
-    justify-content: space-around;
-    cursor: pointer;
     z-index: 3;
     overflow: hidden;
+    width: 28px;
+    height: 28px;
+    right: 12px;
+    top: 6px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    cursor: pointer;
+    overflow: hidden;
     transform: scale(0.9);
+    background : #777;
+    border: 3px #777 solid;
+    @include pad_potrait {
+      display: flex;
+    }
     @include mobile_potrait {
       display: flex;
-      width: 36px;
-      height: 45px;
-      right: 12px;
-      top: 22px;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: space-around;
-      cursor: pointer;
-      overflow: hidden;
-      transform: scale(0.9);
+
     }
 
     span {
@@ -206,15 +216,15 @@
       align-items: flex-start;
       span {
         &:first-child {
-          width: 45px;
-          transform: rotate(42deg);
+          width: 27px;
+          transform: rotate(38deg);
         }
         &:nth-child(2) {
           opacity: 0;
         }
         &:last-child {
-          width: 45px;
-          transform: rotate(-42deg);
+          width: 27px;
+          transform: rotate(-38deg);
         }
       }
     }

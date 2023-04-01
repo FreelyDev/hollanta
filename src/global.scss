@@ -6,6 +6,11 @@ $str_color: rgb(60, 190, 112);
     @content;
   }
 }
+@mixin pad_potrait {
+  @media screen and (max-width: 820px) and (orientation: portrait) {
+    @content;
+  }
+}
 @mixin mobile_landscape {
   @media screen and (max-height: $width) and (orientation: landscape) {
     @content;

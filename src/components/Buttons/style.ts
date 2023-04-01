@@ -14,7 +14,9 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'normal',
     lineHeight : 1,
     maxHeight : 42,
-    
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12,
+    },
   },
   icon: {
     marginLeft: 16,
@@ -61,6 +63,14 @@ const useStyles = makeStyles(theme => ({
     color: '#ddd',
     '&:hover': {
       background: '#333',
+      '& $outline': {
+        color: '#fff !important',
+      }
+    },
+    '& $outline': {
+      background: 'transparent !important',
+      border : '1px #aaa solid !important',
+      color: '#aaa !important',
     },
   },
   outline: {
@@ -69,6 +79,14 @@ const useStyles = makeStyles(theme => ({
     color: '#F0C846',
     '&:hover': {
       background: '#F0C84633',
+    },
+  },
+  grey_outline: {
+    background: 'transparent',
+    border : '1px #aaa solid',
+    color: '#aaa',
+    '&:hover': {
+      background: '#aaaaaa33',
     },
   },
   disabled: {

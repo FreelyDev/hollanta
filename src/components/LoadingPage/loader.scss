@@ -19,6 +19,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
   p{
     font-size: min(25px, 2.5vw);
     @media screen and (max-width: 576px) and (orientation:portrait){

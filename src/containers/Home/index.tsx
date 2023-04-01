@@ -1,18 +1,13 @@
 import FilledButton from 'components/Buttons/FilledButton';
 import { useStyles } from './style';
 import { useContext, useEffect, useState } from 'react';
-import Tab from 'components/Tab';
 import clsx from 'clsx';
-import Expand from "react-expand-animated";
 import { useWeb3React } from '@web3-react/core';
 import { HashLink } from 'react-router-hash-link';
-import VotSection from 'components/Sections/SubmitSection/SubmitSection';
-import HomeSection from 'components/Sections/VotingSection/VotingSection';
-import CheckBox from 'components/Forms/CheckBox';
-import Modal from 'components/modal';
 import { toast } from 'react-toastify';
 import LoadingCtx from 'context/LoadingProvider';
-import ExpandView from 'components/ExpandView';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const tabList = [
   {
@@ -66,11 +61,13 @@ const popList = [
 const Home = () => {
   const classes = useStyles();
   const [tabId, setTabId] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const [slideCount, setSlideCount] = useState(5);
+  const [slideActiveCof, setSlideActiveCof] = useState(2);
   const [loginStatus, setLoginStatus] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
   const { setLoading } = useContext(LoadingCtx);
-  const slideCount = 5;
+  const usetheme = useTheme();
+  const isMobile = useMediaQuery(usetheme.breakpoints.down('md'));
   
   const { connector, library, chainId, account, active } = useWeb3React();
 
@@ -78,6 +75,17 @@ const Home = () => {
     const isLoggedin = account && active && chainId === parseInt(process.env.REACT_APP_NETWORK_ID, 10);
     setLoginStatus(isLoggedin);
   }, [connector, library, account, active, chainId]);
+
+  useEffect(() => {
+    if(isMobile){
+      setSlideCount(3)
+      setSlideActiveCof(1)
+    }
+    else{
+      setSlideCount(5)
+      setSlideActiveCof(2)
+    }
+  }, [isMobile]);
 
   const onSlideScroll=(direct : string)=>{
     if(direct === 'left'){
@@ -111,9 +119,9 @@ const Home = () => {
             <div className={classes.popular}>
               <div className={classes.popular_slide}>
                 <div className="slide_view">
-                  <div className="slide_list" style={{width : `${100 + (popList.length - 5) * 20}%`, transform : `translateX(-${(100/popList.length)*slideIndex}%)`}}>
+                  <div className="slide_list" style={{width : `${100 + (popList.length - slideCount) * (100/ slideCount)}%`, transform : `translateX(-${(100/popList.length)*slideIndex}%)`}}>
                     {popList.map((d, k)=>(
-                      <div className={clsx("slide_item", k === slideIndex  + 2 ? 'active-item': (k === slideIndex  + 1 || k === slideIndex  + 3) ? 'none1-item': (k === slideIndex || k === slideIndex  + 4) ? 'none2-item':'')} key={k} >
+                      <div className={clsx("slide_item", k === slideIndex  + slideActiveCof ? 'active-item': (k === slideIndex  + (slideActiveCof - 1) || k === slideIndex  + (slideActiveCof + 1)) ? 'none1-item': (k === slideIndex || k === slideIndex  + 4) ? 'none2-item':'')} key={k} >
                         <div className="item_content">
                         <img src={d.imgUrl} alt="" />
                         </div>
@@ -127,23 +135,86 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <div className="studio_list">
+              <img src="/assets/imgs/studio/studio_01.png" alt="" />
+              <img src="/assets/imgs/studio/studio_02.png" alt="" />
+              <img src="/assets/imgs/studio/studio_03.png" alt="" />
+              <img src="/assets/imgs/studio/studio_04.png" alt="" />
+              <img src="/assets/imgs/studio/studio_05.png" alt="" />
+              <img src="/assets/imgs/studio/studio_06.png" alt="" />
+            </div>
           </div>
-          <div className="studio_list">
-            <img src="/assets/imgs/studio/studio_01.png" alt="" />
-            <img src="/assets/imgs/studio/studio_02.png" alt="" />
-            <img src="/assets/imgs/studio/studio_03.png" alt="" />
-            <img src="/assets/imgs/studio/studio_04.png" alt="" />
-            <img src="/assets/imgs/studio/studio_05.png" alt="" />
-            <img src="/assets/imgs/studio/studio_06.png" alt="" />
-          </div>
+          
           <div className={classes.content}>
             <h1>Hollanta “What is it?”</h1>
             <p>Hollanta is a centralized Web3 platform that allows its community to participate in the fundraising & film creation process. It aims to be "The crowd sourcing, kickstarting, profit sharing, NFT/ cryptocurrency-based film company.</p>
           </div>
-          <div className={classes.content}>
+          <div className={classes.content_white}>
             <div className="portfolio">
-              
+              <div className="item">
+                <img src="/assets/imgs/portfolio/image_00.png" alt="" />
+                <div className="desc">
+                  <h2>Watch</h2>
+                  <p>Watch our creative community pitch and toss around small and big screen ideas  </p>
+                </div>
+              </div>
+              <div className="item">
+                <img src="/assets/imgs/portfolio/image_01.png" alt="" />
+                <div className="desc">
+                  <h2>Create</h2>
+                  <p>Watch our creative community pitch and toss around small and big screen ideas  </p>
+                </div>
+              </div>
+              <div className="item">
+                <img src="/assets/imgs/portfolio/image_02.png" alt="" />
+                <div className="desc">
+                  <h2>Market</h2>
+                  <p>Watch our creative community pitch and toss around small and big screen ideas  </p>
+                </div>
+              </div>
+              <div className="item">
+                <img src="/assets/imgs/portfolio/image_03.png" alt="" />
+                <div className="desc">
+                  <h2>Manage</h2>
+                  <p>Watch our creative community pitch and toss around small and big screen ideas  </p>
+                </div>
+              </div>
             </div>
+          </div>
+          <div className={classes.content_grey}>
+            <h1>Why should you use Hollanta?</h1>
+            <div className="item_list">
+              <div className="item">
+                <img src="/assets/imgs/Frame.png" alt="" />
+                <div className="desc">
+                  <p>A community driven movie process, where the audience decides what they want to see with their dollars.</p>
+                </div>
+              </div>
+              <div className="item">
+                <img src="/assets/imgs/Frame.png" alt="" />
+                <div className="desc">
+                  <p>Hollanta native token, POPCORN is a hyper deflationary coin that allows platform users/token holders to earn passive rewards through static reflection. Thus participating in rewards and profits.</p>
+                </div>
+              </div>
+              <div className="item">
+                <img src="/assets/imgs/Frame.png" alt="" />
+                <div className="desc">
+                  <p>Being apart of the process of creating some kickass series, movies, animations, audio books, and cartoons. </p>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+          <div className={classes.content} style = {{background : '#111'}}>
+            <h1>Start now.</h1>
+            <div className="btns">
+              <FilledButton label={'Connect Wallet and Enter'} icon = {<i className="fas fa-arrow-right"></i>} iconPosition='end' color='grey_outline'/>
+
+              <FilledButton label={'Create New Wallet'} icon = {<img src="/assets/icons/icon_wallet_01.svg" alt="" />} iconPosition='end'/>
+            </div>
+            <img src="/assets/imgs/back_02.png" alt="" className="back1" />
+            <img src="/assets/imgs/back_03.png" alt="" className="back2" />
+
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import ProductDetail from 'containers/ProductDetail';
 import DreamCast from 'containers/DreamCast';
 import Voting from 'containers/Voting';
 import Home from 'containers/Home';
+import CreateProject from 'containers/CreateProject';
 
 const Routes = () => (
   <>
@@ -20,6 +21,7 @@ const Routes = () => (
         <Route exact path="/voting" component={Voting} />
         <Route exact path="/submit" component={Submit} />
         <Route exact path="/dream_cast" component={DreamCast} />
+        <Route exact path="/create_project" component={CreateProject} />
         <Route exact path="/staking" component={Staking} />
         <Route exact path="/nft" component={Mint} />
         <Route exact path="/products/:id" component={ProductDetail} />

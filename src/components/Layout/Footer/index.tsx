@@ -6,7 +6,8 @@ import { HashLink } from 'react-router-hash-link';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: theme.spacing(5),
+    paddingTop : 35,
+    paddingBottom : 35,
     background : '#181818',
     width : '100%',
     display : 'flex',
@@ -14,7 +15,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent : 'center',
     textAlign : 'center',
     [theme.breakpoints.down('xs')]: {
-      marginTop : 50,
     },
   },
   content :{
@@ -28,23 +28,21 @@ const useStyles = makeStyles(theme => ({
     '& .row':{
       display: 'flex',
       justifyContent: 'space-between',
-      paddingTop : 35,
-      paddingBottom : 35,
       width: '100%',
       [theme.breakpoints.down('xs')]: {
-        flexDirection: 'column',
-        paddingTop : 24,
-        paddingBottom : 24,
+        flexWrap : 'wrap',
+        width: '90%',
       },
-
-      
     },
 
     '& .col':{
       display: 'flex',
       flexDirection: 'column',
-      paddingBottom : 40,
       width: '100%',
+      [theme.breakpoints.down('xs')]: {
+        paddingBottom : 10,
+        width: '50%',
+      },
       '& h3':{
         color : '#fff',
         fontSize : 20,
@@ -66,6 +64,9 @@ const useStyles = makeStyles(theme => ({
         transition : 'all 0.3s ease',
         display: 'flex',
         alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+          marginBottom : 0,
+        },
         '&:hover':{
           color : '#fde995',
         },
@@ -118,7 +119,7 @@ const Footer = () => {
       <div className={classes.content}>
 
         <div className="row">
-          <div className="col" style={{padding : 0}}>
+          <div className="col">
             <h4>Home</h4>
             <HashLink to="/staking">Dashboard</HashLink>
             <HashLink to="/">Voting</HashLink>
@@ -127,20 +128,20 @@ const Footer = () => {
             <HashLink to="/">Contact</HashLink>
           </div>
 
-          <div className="col" style={{padding : 0}}>
+          <div className="col">
             <h4>Help</h4>
             <HashLink to="/">FAQs</HashLink>
             <HashLink to="/">Terms & Conditions</HashLink>
             <HashLink to="/">Policy</HashLink>
           </div>
 
-          <div className="col" style={{padding : 0}}>
+          <div className="col">
             <h4>Help</h4>
             <HashLink to="/">FAQs</HashLink>
             <HashLink to="/">Terms & Conditions</HashLink>
             <HashLink to="/">Policy</HashLink>
           </div>
-          <div className="col" style={{padding : 0}}>
+          <div className="col">
             <h4>Help</h4>
             <HashLink to="/">FAQs</HashLink>
             <HashLink to="/">Terms & Conditions</HashLink>

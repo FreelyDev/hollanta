@@ -31,7 +31,7 @@ FilledButton.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   iconPosition: PropTypes.oneOf(['start', 'end']),
   handleClick: PropTypes.func,
-  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'grey', 'smart']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'grey', 'grey_outline']),
   disabled: PropTypes.bool,
   outline: PropTypes.bool,
 };
